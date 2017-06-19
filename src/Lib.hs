@@ -1,6 +1,11 @@
 module Lib
-    ( someFunc
+    ( someFunc,
+      someString
     ) where
 
+import Week1
 someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+someFunc = putStrLn someString
+
+someString :: String
+someString = "someString"
