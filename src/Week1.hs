@@ -1,10 +1,12 @@
 module Week1 where
 
-test1 :: IO()
-test1 = putStrLn test2
+toDigit :: Integer -> [Integer]
+toDigit n
+  | n > 0 = toDigit (div n 10) ++ [mod n 10]
+  | otherwise = []
 
-test2 :: String
-test2 = "SomeString!!!"
-
-
+toDigitRev :: Integer -> [Integer]
+toDigitRev n
+  | n > 0 = (mod n 10) : toDigitRev (div n 10)
+  | otherwise = []
 
