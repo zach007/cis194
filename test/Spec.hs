@@ -15,3 +15,8 @@ main = hspec $ do
   describe "toDigitRev" $ do
       it "should return a list of digit of a integer in a reverse order" $ do
         toDigitRev 123 `shouldBe` [3,2,1]
+
+  describe "doubleEveryOther" $ do
+      it "should double every number not the neibehood from the right" $ do
+        doubleEveryOther [8,7,6,5] `shouldBe` [16,7,12,5]
+        doubleEveryOther [1,2,3]   `shouldBe` [1,4,3]
