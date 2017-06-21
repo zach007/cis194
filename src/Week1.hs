@@ -19,3 +19,7 @@ doubleFromLeft :: [Integer] -> [Integer]
 doubleFromLeft [] = []
 doubleFromLeft [x] = [x]
 doubleFromLeft (x : y : z) = x : 2 * y : doubleFromLeft z
+
+{--better implement of double a 2nd list --}
+double2Nd :: [Integer] -> [Integer]
+double2Nd = zipWith ($) (cycle [id,(*2)])
