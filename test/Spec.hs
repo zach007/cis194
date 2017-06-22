@@ -20,3 +20,7 @@ main = hspec $ do
       it "should double every number not the neibehood from the right" $ do
         doubleEveryOther [8,7,6,5] `shouldBe` [16,7,12,5]
         doubleEveryOther [1,2,3]   `shouldBe` [1,4,3]
+
+  describe "sumDigit" $ do
+      it "should return sum value of each number in a list " $ do
+        sumDigit [16,7,12,5]  `shouldBe` 22
