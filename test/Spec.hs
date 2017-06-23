@@ -24,3 +24,8 @@ main = hspec $ do
   describe "sumDigit" $ do
       it "should return sum value of each number in a list " $ do
         sumDigit [16,7,12,5]  `shouldBe` 22
+
+  describe "validate" $ do
+      it "should return Bool whether a num is validate" $ do
+        validate 4012888888881881 `shouldBe` True
+        validate 4012888888881882 `shouldBe` False
