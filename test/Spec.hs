@@ -29,3 +29,7 @@ main = hspec $ do
       it "should return Bool whether a num is validate" $ do
         validate 4012888888881881 `shouldBe` True
         validate 4012888888881882 `shouldBe` False
+
+  describe "hanio" $ do
+    it " there is f(n) = n^2 -1 step to move the hanio tower" $ do
+        hanio 2 "from" "helper" "to" `shouldBe` [("from", "helper"),("from", "to"),("helper","to")]

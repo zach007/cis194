@@ -33,3 +33,10 @@ validate :: Integer -> Bool
 validate n = let result = mod (sumDigit $ doubleEveryOther $ toDigit n) 10
              in if result == 0 then True
                                else False
+type Peg = String
+type Move = [(Peg,Peg)]
+
+hanio :: Integer -> Peg -> Peg -> Peg -> Move
+--hanio = undefined
+hanio 0 _ _ _ = []
+hanio n from helper to = hanio (n-1) from  to helper  ++ [(from, to)] ++ hanio (n-1) helper from to
