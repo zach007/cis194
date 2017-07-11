@@ -23,3 +23,18 @@ insert msg1@(LogMessage _ t1 _) (Node left msg2@(LogMessage _ t2 _) right)
   | t1 < t2 = Node (insert msg1 left) msg2 right
   | otherwise = Node left msg2 (insert msg1 right)
 insert _ tree = tree
+
+
+build :: [LogMessage] -> MessageTree
+{--point full style
+build [] = Leaf
+build (msg : xsmsg) = insert msg (build xsmsg)
+--}
+{--haskell is very easy to abstract a function, foint free style : doesn't care about the data--}
+build = foldr insert Leaf
+
+
+inOrder :: MessageTree -> [LogMessage]
+inOrder Leaf = []
+inOrder (Node leftTree msg rightTree) = inOrder leftTree ++ [msg] ++ inOrder rightTree
+
