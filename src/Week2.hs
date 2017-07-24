@@ -38,3 +38,16 @@ inOrder :: MessageTree -> [LogMessage]
 inOrder Leaf = []
 inOrder (Node leftTree msg rightTree) = inOrder leftTree ++ [msg] ++ inOrder rightTree
 
+whatWentWrong :: [LogMessage] -> [String]
+whatWentWrong = extractMessage . inOrder . build . filter (filterMessage 50)
+-- filter the error logmessage and then filter > 50 error
+
+filterMessage :: Int -> LogMessage -> Bool
+filterMessage minError (LogMessage (Error lvl) _ _)
+  | minError <= lvl = True
+  | otherwise = False
+filterMessage _ _ = False
+
+extractMessage :: [LogMessage]-> [String]
+extractMessage (LogMessage _ _ info : msgs) = info : extractMessage msgs
+extractMessage _ = []
