@@ -29,8 +29,15 @@ streamRepeat :: a -> Stream a
 streamRepeat n = Cons n (streamRepeat n)
 
 streamMap :: (a -> b) -> Stream a -> Stream b
-streamMap f (Cons y ys) = Cons (f y) (streamMap  f ys)
+streamMap f (Cons x ys) = Cons (f x) (streamMap f ys)
 
 
 streamFromSeed :: (a -> a) -> a -> Stream a
 streamFromSeed f y = Cons y (streamFromSeed f (f y))
+
+nats :: Stream Integer
+nats =streamFromSeed (+1) 0
+
+
+ruler :: Stream Integer
+
