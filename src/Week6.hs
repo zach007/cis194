@@ -39,5 +39,4 @@ nats :: Stream Integer
 nats =streamFromSeed (+1) 0
 
 
-ruler :: Stream Integer
 
